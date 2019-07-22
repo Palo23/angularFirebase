@@ -1,0 +1,36 @@
+<div class="alert alert-warning" role="alert" *ngFor="let item of items">
+    {{item.nombre}} - {{item.id}}
+    <div class="float-right" (click)="eliminar(item)">
+        <i class="far fa-trash-alt"></i>
+      </div>
+      <div class="float-right mx-2" (click)="editar(item)" data-toggle="modal" data-target="#modalEdit">
+          <i class="far fa-edit"></i>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editando: {{itemEdit.nombre}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="agregarEditado()">
+            <input 
+            type="text" placeholder="{{itemEdit.nombre}}" 
+            name="nombre" class="form-control"
+            [(ngModel)]="itemEdit.nombre"
+            >
+            <button class="btn btn-primary mt-3" type="submit">Agregar tarea</button>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

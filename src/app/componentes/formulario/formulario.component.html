@@ -1,0 +1,8 @@
+<form (ngSubmit)="agregar()">
+    <input 
+    type="text" placeholder="Ingrese nombre de la tarea" 
+    name="nombre" class="form-control"
+    [(ngModel)]="item.nombre"
+    >
+    <button class="btn btn-primary mt-3" type="submit">Agregar tarea</button>
+</form>
